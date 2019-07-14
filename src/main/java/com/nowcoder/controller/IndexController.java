@@ -1,7 +1,12 @@
 package com.nowcoder.controller;
 
+import com.nowcoder.aspect.LogAspect;
 import com.nowcoder.model.User;
+import com.nowcoder.service.ToutiaoService;
 import com.sun.deploy.net.HttpResponse;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpRequest;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,10 +22,13 @@ import javax.servlet.http.HttpSession;
  */
 @Controller
 public class IndexController {
+    @Autowired
+    private ToutiaoService toutiaoService;
+
     @RequestMapping(path={"/","/index"})
     @ResponseBody
     public String index(){
-        return "Hello World";
+        return "Hello World"+toutiaoService.say();
     }
 
     @RequestMapping(path={"/profile/{groupId}/{userId}"})
