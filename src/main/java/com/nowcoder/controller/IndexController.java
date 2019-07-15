@@ -20,7 +20,7 @@ import javax.servlet.http.HttpSession;
 /**
  * Created by lenovo on 2019/7/14.
  */
-@Controller
+//@Controller
 public class IndexController {
     @Autowired
     private ToutiaoService toutiaoService;
