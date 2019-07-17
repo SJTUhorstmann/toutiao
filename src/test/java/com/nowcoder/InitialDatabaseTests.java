@@ -29,13 +29,14 @@ public class InitialDatabaseTests {
 
 	@Test
 	public void contextLoads() {
+		Random random=new Random();
 		for(int i=0;i<11;i++){
 			News news=new News();
 			news.setTitle(String.format("%d",i));
 			news.setUserId(1);
 			news.setLikeCount(2);
-			news.setLink("www.123.com");
-			news.setImage("www.321.com");
+			news.setLink(String.format("http://www.nowcoder.com/%d.html", i));
+			news.setImage(String.format("http://images.nowcoder.com/head/%dm.png", random.nextInt(1000)));
 			news.setCommentCount(3);
 			news.setCreatedDate(new Date());
 			newsDao.addNews(news);
